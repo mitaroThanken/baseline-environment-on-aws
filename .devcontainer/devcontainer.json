@@ -16,7 +16,7 @@
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "yarn install",
 
-  "postStartCommand": "git secrets --register-aws --global",
+  "postStartCommand": "git secrets --register-aws --global && git secrets --add -a '111122223333' --global && git secrets --add -a '444455556666' --global && git secrets --add -a '123456789012' --global && git secrets --add -a '777788889999' --global && git secrets --add -a '000000000000' --global && git secrets --add -a '111111111111' --global && git secrets --add -a '222222222222' --global",
 
   // Configure tool-specific properties.
   "customizations": {
