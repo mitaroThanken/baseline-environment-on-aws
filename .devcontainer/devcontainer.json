@@ -1,0 +1,45 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "Node.js & TypeScript",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+
+  "postStartCommand": "npm ci && npx simple-git-hooks && git secrets --register-aws --global && git secrets --add -a '111122223333' --global && git secrets --add -a '444455556666' --global && git secrets --add -a '123456789012' --global && git secrets --add -a '777788889999' --global && git secrets --add -a '000000000000' --global && git secrets --add -a '111111111111' --global && git secrets --add -a '222222222222' --global",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "amazonwebservices.aws-toolkit-vscode",
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "mhutchie.git-graph"
+      ],
+      "settings": {
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "prettier.useEditorConfig": true
+      }
+    }
+  }
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
