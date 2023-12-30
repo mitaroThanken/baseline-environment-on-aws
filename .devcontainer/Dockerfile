@@ -7,3 +7,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g npm
+
+USER node
+
+WORKDIR /home/node
+
+RUN ln -s /workspaces/baseline-environment-on-aws/.aws/ .aws
